@@ -1,0 +1,14 @@
+<div class="container m-3 ">
+  <h1><%=@list.name%></h1>
+    <ul class="list-unstyled">
+      <% @list.movies.each do |movie|%>
+        <li class="text-center"> <%=movie.title%> <%=movie.rating%></li>
+        <li class="text-center"> <%=movie.overview%></li>
+        <li class="text-center"> <%=movie.poster_url%></li>
+      <% end %>
+  </ul>
+
+  <%= link_to "Back to my list", lists_path, class: "btn btn-ghost justify-content-center"%>
+  <%= link_to "Add a movie to my list", new_list_bookmark_path(@list), class: "btn btn-ghost justify-content-center"%>
+
+</div>

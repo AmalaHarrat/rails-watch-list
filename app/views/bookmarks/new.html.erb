@@ -1,0 +1,10 @@
+<h2>Bookmarks#new</h2>
+<p>Find me in app/views/bookmarks/new.html.erb</p>
+
+<div class="container">
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :name %>
+  <%= f.association :movie %>
+  <%= f.submit "Submit ", class: "btn btn-ghost" %>
+<% end %>
+</div>
