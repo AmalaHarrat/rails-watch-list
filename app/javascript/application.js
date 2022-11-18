@@ -2,5 +2,4 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import 'bootstrap';
-import "navbar"
-import "home"
+// gst
