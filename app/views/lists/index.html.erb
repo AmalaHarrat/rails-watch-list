@@ -1,9 +1,21 @@
-<div class="container m-3">
-  <h1 class="text-center"> My Lists </h1>
-  <ul class="list-unstyled">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(<%=image_path('War.jpg')%>)">
+  <div class="container">
+    <h1 class="text-center"> My Lists </h1>
+    <p class="text-center"> Create your perfect movie lists ! </p>
+    <div class = "btn-home">
+    <%= link_to "Create a list", new_list_path, class: "btn btn-ghost "%>
+    </div>
+  </div>
+</div>
+
+  <div class="cards">
     <% @lists.each do |list|%>
-      <li class="text-center"> <%= link_to list.name, list_path(list) %></li>
+      <%= link_to list_path(list) do %>
+      <div class="zoom">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=image_path('humoristic.jpg')%>)">
+        <%= list.name %>
+        </div>
+      </div>
+      <% end %>
     <% end %>
-  </ul>
-  <%= link_to "Create a list", new_list_path, class: "btn btn-ghost justify-content-center"%>
 </div>
