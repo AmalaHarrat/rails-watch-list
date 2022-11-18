@@ -21,7 +21,7 @@ class BookmarksController < ApplicationController
     # afficher dans show de list
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_to lists_path, status: :see_other
+    redirect_to list_path, status: :see_other
   end
 
   def bookmark_params
