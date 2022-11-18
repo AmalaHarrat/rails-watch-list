@@ -13,13 +13,11 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.zoom {
-  transition: transform .2s; /* Animation */
-  :hover {
-    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-    transition: 0.3s;
+.zoom:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
   }
-}
 
 .cards {
   display: grid;
@@ -33,6 +31,43 @@
 }
   :hover{
     color: grey;
+  }
+
+  // CARD PRODUCTS
+
+  .card-product {
+    overflow: hidden;
+    height: 200px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .card-product img {
+    height: 100%;
+    width: 160px;
+    object-fit: cover;
+  }
+
+  .card-product h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .card-product li {
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    list-style: none;
+  }
+
+  .card-product .card-product-infos {
+    padding: 16px;
   }
 
 

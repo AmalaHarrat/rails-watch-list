@@ -1,21 +1,25 @@
 <div class="container m-3 ">
   <h1><%=@list.name%></h1>
-    <ul class="list-unstyled">
-      <% @list.movies.each do |movie|%>
-        <li class="text-center"> <%=movie.title%> <%=movie.rating%></li>
-        <li class="text-center"> <%=movie.overview%></li>
-        <li class="text-center"> <%=movie.poster_url%></li>
-      <% end %>
-  </ul>
-  <% @list.bookmarks.each do |bookmark|%>
-      <p class="text-center"> <%=bookmark.comment%></p>
-      <%#  %>
-      <%= link_to "Delete your comment", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-ghost justify-content-center"%>
-      <%# calcul le moment actuel et le l'heure de creation %>
-      <small><em class="text-muted"><%= distance_of_time_in_words_to_now(bookmark.created_at) %> ago</em></small>
-  <% end %>
+    <% @list.movies.each do |movie|%>
+      <div class="card-product">
+        <img src= "<%=image_path('Bollywood.jpg')%>" />
+        <div class="card-product-infos">
+          <li class= "text-center bold"> - <%=movie.title%> <%=movie.rating%></li>
+          <li> <%=movie.overview%></li>
+    <% end %>
+        <br>
+        </ul>
+        <% @list.bookmarks.each do |bookmark|%>
+          <p> <em><%=bookmark.comment%>
+          <%# calcul le moment actuel et le l'heure de creation %>
+          </em> <small><em class="text-muted"><%= distance_of_time_in_words_to_now(bookmark.created_at) %> ago</em></small> </p>
+          <div class = "delete-btn-show">
+            <%= link_to "✘ Delete your comment", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn  justify-content-center"%>
+          </div>
+      </div>
+    <% end %>
+  </div>
 
-  <%= link_to "Back to my list", lists_path, class: "btn btn-ghost justify-content-center"%>
-  <%= link_to "Add a movie to my list", new_list_bookmark_path(@list), class: "btn btn-ghost justify-content-center"%>
-
+    <%= link_to "Back to my list", lists_path, class: "btn btn-ghost justify-content-center"%>
+    <%= link_to "Add a movie to my list", new_list_bookmark_path(@list), class: "btn btn-ghost justify-content-center"%>
 </div>
